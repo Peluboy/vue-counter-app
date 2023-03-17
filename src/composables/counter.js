@@ -18,7 +18,7 @@ export default function useCounter() {
   };
 
   const setValue = (newValue) => {
-    state.value = newValue;
+    state.value = newValue > 10000 ? 10000 : newValue;
   };
 
   return {
