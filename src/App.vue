@@ -108,4 +108,19 @@ button {
   outline: none;
   border: none;
 }
+
+@media screen and (max-width: 768px) {
+  input {
+    padding-left: 0.7rem;
+    padding-right: 0;
+    width: 160px;
+  }
+  button {
+    font-size: 11px;
+  }
+
+  input::placeholder {
+    font-size: 12px;
+  }
+}
 </style>

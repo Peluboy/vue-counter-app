@@ -176,4 +176,14 @@ export default {
   background: #ffffff;
   border-radius: 0 6px 6px 0;
 }
+
+@media screen and (max-width: 768px) {
+  .increment_decrement {
+    width: 300px;
+  }
+
+  .input_field {
+    width: 320px;
+  }
+}
 </style>
