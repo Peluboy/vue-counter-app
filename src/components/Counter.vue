@@ -185,5 +185,8 @@ export default {
   .input_field {
     width: 320px;
   }
+  .increment_decrement > h1 {
+    font-size: 45px;
+  }
 }
 </style>
