@@ -1,11 +1,11 @@
 <template>
-  <div class="container">
+  <div class="container" :class="mode">
     <header>
       <router-link to="/"><img src="./assets/myLogo.svg" /></router-link>
     </header>
 
     <main>
-      <router-view />
+      <router-view :mode="mode" @toggle="toggle" />
     </main>
 
     <footer>&copy; 2023 Peluboy</footer>
@@ -15,6 +15,20 @@
 <script>
 export default {
   name: "App",
+  data() {
+    return {
+      mode: "light",
+    };
+  },
+  methods: {
+    toggle() {
+      if (this.mode == "dark") {
+        this.mode = "light";
+      } else {
+        this.mode = "dark";
+      }
+    },
+  },
 };
 </script>
 
@@ -29,13 +43,30 @@ html,
   box-sizing: border-box;
   font-family: "Lato", sans-serif;
 }
+
+.dark {
+  background: #141414;
+  color: #6a6a6a;
+}
+
+.dark header a img {
+  filter: brightness(0) invert(0.5);
+}
 .container {
   display: flex;
   padding: 2rem 0;
   flex-direction: column;
-  height: 90vh;
+  min-height: 91.5vh;
   align-items: center;
   justify-content: space-between;
+  transition: background 0.3s ease-in-out;
+}
+
+.dark input {
+  background-color: #1d1d1d;
+  border-left: 2px solid #363636;
+  color: #6a6a6a;
+  border-right: 2px solid #363636;
 }
 
 input {
@@ -45,7 +76,7 @@ input {
   height: 30px;
   font-size: 15px;
   margin: auto;
-  border-left: 2px solid #ccc;
+  border-left: 2px solid #d9d9d9;
   border-right: 2px solid #d9d9d9;
 }
 
@@ -54,6 +85,10 @@ input::placeholder {
   font-size: 15px;
   line-height: 0;
   color: #ebe7eb;
+}
+
+.dark input::placeholder {
+  color: #4a4a4a;
 }
 
 input::-webkit-outer-spin-button,
